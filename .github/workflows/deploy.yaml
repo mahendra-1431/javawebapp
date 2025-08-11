@@ -1,7 +1,7 @@
 name: cicd workflow to create docker image and upload image into DockerHub
 on:
   push:
-    branches: ["master"]
+    branches: ["main"]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -28,3 +28,4 @@ jobs:
       env:
         IMAGE_TAG: ${{ github.sha }}
       run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/mydimages:${IMAGE_TAG}
+      
